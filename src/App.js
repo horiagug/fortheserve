@@ -3,25 +3,39 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      players: [],
+    };
+  }
+
+  componentDidMount() {
+
+    const objThis= this;
+    fetch('http://fortheserve.herokuapp.com/api/players', {method: 'GET'})
+      .then((response) => response.json())
+      .then( findresponse => {
+        let players = findresponse.map((player) => {
+          return(
+            <div key={player._id}>
+              <ul>
+                <li>{player.name}</li>
+                <li>{player.elo}</li>
+              </ul>
+            </div>
+          )
+        })
+        this.setState({players: players})
+      })
+  }
+
   render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+    return(
+      <div>
+        {this.state.players}
       </div>
-    );
+    )
   }
 }
 
