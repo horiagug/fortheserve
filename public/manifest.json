@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "fortheserve",
+  "name": "For the Server - A ping pong score tracking site",
   "icons": [
     {
       "src": "favicon.ico",
