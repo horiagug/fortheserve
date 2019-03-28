@@ -11,7 +11,7 @@ class Leaderboard extends Component {
     }
 
     componentDidMount() {
-        fetch('/api/players', {method: 'GET'}).then((response) => response.json())
+        api.getPlayers()
           .then( json => {
             let players = json.map((player) => {
               return(
