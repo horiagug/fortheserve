@@ -4,6 +4,7 @@ import Home from "./Home";
 import Leaderboard from "./Leaderboard";
 import Addgame from "./Addgame";
 import Playermanagement from "./Playermanagement";
+import RecentGames from "./RecentGames";
 
 class Container extends Component {
 
@@ -11,6 +12,7 @@ class Container extends Component {
       return(
         <div>
             <Home/>
+            <RecentGames/>
             <Leaderboard/>
             <Addgame/>
             <Playermanagement/>

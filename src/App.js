@@ -21,6 +21,10 @@ class App extends Component {
            onEnter={() => {
             document.getElementById("leaderboard_id").scrollIntoView();
           }} />
+          <Route path='/recentgames' component={Container}
+           onEnter={() => {
+            document.getElementById("recent_games").scrollIntoView();
+          }} />
           <Route path='/addgame' component={Container} 
            onEnter={() => {
               document.getElementById("addgame_id").scrollIntoView();
