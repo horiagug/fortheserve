@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import api from "./../api"
-import Game from "./Game"
+import api from "./../../api"
+import Game from "./../Game"
 
 class RecentGames extends Component {
     constructor(props){
-        super(props);
+        super(props);      
         this.state = {
             games:[],
         }

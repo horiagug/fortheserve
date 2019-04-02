@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import api from "./../api"
-import Player from "./Player";
+import Player from "./Player/Player";
 
 class Game extends Component {
     constructor(props){
