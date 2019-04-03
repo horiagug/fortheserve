@@ -1,53 +1,42 @@
 import React, { Component } from "react";
+import api from "./../../api"
+import PlayerSelector from "./Playerselector"
 
 class Addgame extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            showPlayer1: false,
+            players: [],
+            winner: null,
+            loser: null
+
         };
-
-        this.showMenu = this.showMenu.bind(this);
-        this.closeMenu = this.closeMenu.bind(this);
     }
 
-    showMenu(event) {
-        event.preventDefault();
-
-        this.setState({
-            showMenu: true
-        }, () => {
-            document.addEventListener('click', this.closeMenu);
-        })
-    }
-
-    closeMenu(event) {
-
-        if (!this.dropdownMenu.contains(event.target)){
-
-        this.setState({
-             showMenu: false 
-        }, () => {
-            document.removeEventListener('click', this.closeMenu);
-        });
-    }}
+    componentDidMount() {
+        api.getPlayers()
+          .then( json => {
+            let players = json.map((player) => {
+              return(
+                {
+                  id: player._id,
+                  name: player.name,
+                  elo: player.elo
+                }
+              )
+            })
+            this.setState({players: players})
+          })
+        }
 
     render() {
         return(
             <div>
                 <h2> Add Game </h2>
-                <button onClick={this.showMenu}> Winner </button>
-                
-                {
-                    this.state.showMenu ? (
-                        <div ClassName = "menu" ref={(element) => { this.dropdownMenu = element;}} >
-                            <button> Menu item 1 </button>
-                            <button> Menu item 2 </button>
-                            <button> Menu item 3 </button>  
-                        </div>
-                    ) : ( null )
-                }
+                <PlayerSelector players= {this.state.players} name="Select Winning Player" />
+
+                <PlayerSelector players= {this.state.players} name="Select Losing Player" />
             </div>
         )
     }
