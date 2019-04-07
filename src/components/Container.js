@@ -12,9 +12,13 @@ class Container extends Component {
       return(
         <div>
             <Home/>
+            <br />
             <RecentGames/>
+            <br />
             <Leaderboard/>
+            <br />
             <Addgame/>
+            <br />
             <Playermanagement/>
         </div>
       )

@@ -5,7 +5,6 @@ class PlayerSelector extends Component {
         super(props);
 
         this.state = {
-            selected : null,
             name : this.props.name ? this.props.name : "Select Player"
         };
 
@@ -37,8 +36,8 @@ class PlayerSelector extends Component {
     }
 
     handleSelect(player_id, player_name){
+        this.props.onPlayerSelected(player_id)
         this.setState({
-            selected : player_id,
             name : player_name,
             showMenu : false,
         } , () => {
@@ -49,7 +48,7 @@ class PlayerSelector extends Component {
     render() {
         return(
             <div>
-                <button onClick={this.showMenu}> {this.state.name} </button>    
+                <button onClick={this.showMenu} disabled={this.props.disabled}> {this.state.name} </button>    
                 {
                     this.state.showMenu ? (
                         <div className = "menu" ref={(element) => { this.dropdownWinner = element;}} >

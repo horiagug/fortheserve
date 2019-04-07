@@ -33,6 +33,10 @@ export default {
         let response = fetch('/api/players',
             {
                 method: 'POST',
+                headers: {
+                    'Accept' : 'application/json',
+                    'Content-Type' : 'application/json'
+                },
                 body: JSON.stringify(data)
             }).then((response => response.json()))
         return response
@@ -44,7 +48,7 @@ export default {
 
     deletePlayer(id){
         let response = fetch('/api/players/' + id,
-            {method: "DELETE"}).then((response => response.json()))
+            {method: "DELETE"}).then((response => response.text()))
         return response
     },
     // Games API:
@@ -83,17 +87,25 @@ export default {
         if (date) {
             data.date = date;
         }
-        let response = fetch('/api/games',
+       let response = fetch('/api/games',
             {
                 method: 'POST',
+                headers: {
+                    'Accept' : 'application/json',
+                    'Content-Type' : 'application/json'
+                },
                 body: JSON.stringify(data)
-            }).then((response => response.json()))
+            })
+            .then((response) => response.json())
+            .catch((error) => {
+                console.error(error);
+            });
         return response
     },
 
     deleteGame(id){
         let response = fetch('/api/games/' + id,
-            {method: "DELETE"}).then((response => response.json()))
+            {method: "DELETE"}).then((response => response.text()))
         return response
     }
 }
