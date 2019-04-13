@@ -1,10 +1,16 @@
+
+let API_URL 
+process.env.REACT_APP_STAGE === 'dev'
+  ? API_URL = ''
+  : API_URL = 'https://fortheserve.herokuapp.com'
+
+
 export default {
 
     // Players API:
-    
     // Returns a list of players in JSON
     getPlayers(){
-        let players = fetch('/api/players',
+        let players = fetch(API_URL + '/api/players',
             {method: 'GET'}).then((response) => response.json())
         return players;
     },
@@ -17,7 +23,7 @@ export default {
     // 	"elo": int
     // }
     getPlayer(id){
-        let player = fetch('/api/players/' +id,
+        let player = fetch(API_URL +'/api/players/' +id,
             {method: 'GET'}).then((response) => response.json())
         return player;
     },
@@ -30,7 +36,7 @@ export default {
         var data = {
             "name" : name,
         }
-        let response = fetch('/api/players',
+        let response = fetch(API_URL +'/api/players',
             {
                 method: 'POST',
                 headers: {
@@ -47,7 +53,7 @@ export default {
     // Returns: 204 if success, 404 otherwise
 
     deletePlayer(id){
-        let response = fetch('/api/players/' + id,
+        let response = fetch(API_URL +'/api/players/' + id,
             {method: "DELETE"}).then((response => response.text()))
         return response
     },
@@ -55,7 +61,7 @@ export default {
 
     // Returns a list of games in JSON
     getGames(){
-        let games = fetch('/api/games',
+        let games = fetch(API_URL +'/api/games',
             {method: 'GET'}).then((response) => response.json())
         return games;
     },
@@ -74,7 +80,7 @@ export default {
     // }
 
     getGame(id){
-        let game = fetch('/api/games/' + id,
+        let game = fetch(API_URL +'/api/games/' + id,
             {method:'GET'}).then((response) => response.json())
         return game
     },
@@ -87,7 +93,7 @@ export default {
         if (date) {
             data.date = date;
         }
-       let response = fetch('/api/games',
+       let response = fetch(API_URL +'/api/games',
             {
                 method: 'POST',
                 headers: {
@@ -104,7 +110,7 @@ export default {
     },
 
     deleteGame(id){
-        let response = fetch('/api/games/' + id,
+        let response = fetch(API_URL +'/api/games/' + id,
             {method: "DELETE"}).then((response => response.text()))
         return response
     }
