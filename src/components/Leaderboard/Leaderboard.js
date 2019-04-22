@@ -1,29 +1,32 @@
 import React, { Component } from 'react';
 import 'react-confirm-alert/src/react-confirm-alert.css';
+import {Button} from "./../StyledComponents/Button"
+import {H2} from "./../StyledComponents/Headings"
+import {TH, TR,TD, Table} from "./../StyledComponents/Tables"
 
 class Leaderboard extends Component {
     render() {
         this.props.players.sort((a, b) => b.elo - a.elo)
         return (
         <div className = "Leaderboard">
-            <h2>Leaderboard</h2>
-            <table>
+            <H2>Leaderboard</H2>
+            <Table>
               <tbody>
-                <tr>
-                  <th>Player</th>
-                  <th>ELO</th>
-                  <th>Delete</th>
-                </tr>
+                <TR>
+                  <TH>Player</TH>
+                  <TH>ELO</TH>
+                  <TH>Delete</TH>
+                </TR>
                 {this.props.players.map((player) => 
-                <tr key={player.id}>
-                  <td>{player.name}</td>
-                  <td>{player.elo}</td>
-                  <td> <button onClick={() => { this.props.delete(player.id) }} >Delete</button> </td>
-                </tr>
+                <TR key={player.id}>
+                  <TD>{player.name}</TD>
+                  <TD>{player.elo}</TD>
+                  <TD> <Button onClick={() => { this.props.delete(player.id) }} ><i className="far fa-trash-alt"></i></Button> </TD>
+                </TR>
                 )
               }
               </tbody>
-            </table>
+            </Table>
         </div>
     )
     }

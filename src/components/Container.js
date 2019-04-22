@@ -109,11 +109,8 @@ onDeletePlayer(player_id) {
             <Home/>
             <br />
             <RecentGames games={this.state.games}/>
-            <br />
             <Leaderboard players={this.state.players} delete = {this.deletePlayerPopUp}/>
-            <br />
             <Addgame players = {this.state.players}/>
-            <br />
             <Playermanagement/>
         </div>
       )

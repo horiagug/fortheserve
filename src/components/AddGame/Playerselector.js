@@ -5,60 +5,42 @@ class PlayerSelector extends Component {
         super(props);
 
         this.state = {
-            name : this.props.name ? this.props.name : "Select Player"
+            name : this.props.name ? this.props.name : "Select Player",
+            player: null,
         };
 
-        this.showMenu = this.showMenu.bind(this);
-        this.closeMenu = this.closeMenu.bind(this);
         this.handleSelect = this.handleSelect.bind(this)    
     }
 
-    showMenu(event) {
-        event.preventDefault();
-
-        this.setState({
-            showMenu: true
-        }, () => {
-            document.addEventListener('click', this.closeMenu);
-        })
-    }
-
-    closeMenu(event) {
-
-        if (!this.dropdownWinner.contains(event.target)){
-
-        this.setState({
-             showMenu: false,
-        }, () => {
-            document.removeEventListener('click', this.closeMenu);
-        })
-        }
-    }
-
-    handleSelect(player_id, player_name){
-        this.props.onPlayerSelected(player_id)
-        this.setState({
-            name : player_name,
-            showMenu : false,
-        } , () => {
-            document.removeEventListener('click', this.closeMenu);
-        })
+    handleSelect(event){
+        this.setState({player: event.target.value});
+        this.props.onPlayerSelected(event.target.value)
     }
     
     render() {
         return(
             <div>
-                <button onClick={this.showMenu} disabled={this.props.disabled}> {this.state.name} </button>    
+                <label>{this.state.name}: </label>
+                <select  name={this.state.name} onChange = {this.handleSelect} value= {this.state.player}>
                 {
-                    this.state.showMenu ? (
-                        <div className = "menu" ref={(element) => { this.dropdownWinner = element;}} >
-                            {this.props.players.map((player) => 
-                                <button key={player.id} onClick={this.handleSelect.bind(this, player.id, player.name)} > {player.name} </button>
-                            )}
-                        </div>
-                    ) : ( null )
+                this.props.players.map((player) => 
+                    <option 
+                        key={player.id} 
+                        value={player.id} > {player.name} </option>
+                )
                 }
-            </div>
+                 </select>
+                 </div>    
+            //     {
+            //         this.state.showMenu ? (
+            //             <div className = "menu" ref={(element) => { this.dropdownWinner = element;}} >
+            //                 {this.props.players.map((player) => 
+            //                     <button key={player.id} onClick={this.handleSelect.bind(this, player.id, player.name)} > {player.name} </button>
+            //                 )}
+            //             </div>
+            //         ) : ( null )
+            //     }
+            // </div>
         )
     }
 }

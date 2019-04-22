@@ -10,28 +10,27 @@ class App extends Component {
   render() {
     return(
       <div className="app-container">
-      <h1> For The Serve </h1>
         <BrowserRouter>
           <Route path='/' component={Container}
             onEnter={() => {
-              document.getElementById("home_id").scrollIntoView();
+              document.getElementById("Home").scrollIntoView();
             }}
           />
           <Route path='/leaderboard' component={Container}
            onEnter={() => {
-            document.getElementById("leaderboard_id").scrollIntoView();
+            document.getElementById("Leaderboard").scrollIntoView();
           }} />
           <Route path='/recentgames' component={Container}
            onEnter={() => {
-            document.getElementById("recent_games").scrollIntoView();
+            document.getElementById("Recentgames").scrollIntoView();
           }} />
           <Route path='/addgame' component={Container} 
            onEnter={() => {
-              document.getElementById("addgame_id").scrollIntoView();
+              document.getElementById("Addgame").scrollIntoView();
             }}/>
           <Route path='/playermanagement' component={Container}
            onEnter={() => {
-            document.getElementById("playermanagement_id").scrollIntoView();
+            document.getElementById("Addplayer").scrollIntoView();
           }} />
         </BrowserRouter>
       </div>

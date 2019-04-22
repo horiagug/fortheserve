@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import api from "../../api";
 
+import {Button} from "./../StyledComponents/Button"
+
 class Playermanagement extends Component {
     constructor(props){
         super(props);
@@ -46,7 +48,7 @@ class Playermanagement extends Component {
                     value={this.state.playerName}
                     onChange={this.handleNameChange}>
                     </input>
-                    <button disabled={!isEnabled} type="submit"> Submit </button>
+                    <Button primary disabled={!isEnabled} type="submit"> Submit </Button>
                 </form>
             </div>
         )

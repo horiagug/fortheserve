@@ -1,24 +1,27 @@
 import React, { Component } from 'react';
+import {H2} from "./../StyledComponents/Headings"
+import {TH, TR, Table} from "./../StyledComponents/Tables"
+
 
 class RecentGames extends Component {
     render() {
         this.props.games.sort((a, b) => new Date(b.props.date) - new Date(a.props.date))
         return(
             <div className= "RecentGames">
-                <h2>Recent Games</h2>
-                <table>
+                <H2>Recent Games</H2>
+                <Table>
                     <tbody>
-                        <tr>
-                            <th>Winner</th>
-                            <th>Elo Change</th>
-                            <th>Looser</th>
-                            <th>Elo Change</th>
-                            <th>Played on</th>
-                            <th>Delete</th>
-                        </tr>
+                        <TR>
+                            <TH>Winner</TH>
+                            <TH>Elo Change</TH>
+                            <TH>Looser</TH>
+                            <TH>Elo Change</TH>
+                            <TH>Played on</TH>
+                            <TH>Delete</TH>
+                        </TR>
                     {this.props.games}
                     </tbody>
-                </table>
+                </Table>
             </div>
         )
     }

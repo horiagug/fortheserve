@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import api from "./../../api"
 import PlayerSelector from "./Playerselector"
+import {Button} from "./../StyledComponents/Button"
 
 class Addgame extends Component {
     constructor(props) {
@@ -55,12 +56,8 @@ class Addgame extends Component {
     
     render() {
       const renderLoser = this.state.winner != null;
-      if (renderLoser){
-        var array = [...this.props.players]
-        array = array.filter((obj) => {
-            return obj.id !== this.state.winner
-      })
-     }
+      let loserDisplay;
+
       const isEnabled = this.state.winner != null && this.state.loser != null
 
         return(
@@ -73,14 +70,15 @@ class Addgame extends Component {
                     name="Select Winning Player" 
                     onPlayerSelected={this.selectWinner.bind(this)}
                     disabled={false} />
+
+                    <PlayerSelector 
+                          players={this.props.players} 
+                          name="Select Losing Player" 
+                          onPlayerSelected={this.selectLoser.bind(this)}
+                          disabled={!renderLoser} />
+                        }
                   
-                  <PlayerSelector 
-                    players={array} 
-                    name="Select Losing Player" 
-                    onPlayerSelected={this.selectLoser.bind(this)}
-                    disabled={!renderLoser} />
-                  
-                  <button disabled={!isEnabled} type="submit">Submit Game</button>
+                  <Button primary disabled={!isEnabled} type="submit">Submit Game</Button>
                 </form>
             </div>
         )
