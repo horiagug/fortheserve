@@ -6,7 +6,7 @@ class PlayerSelector extends Component {
 
         this.state = {
             name : this.props.name ? this.props.name : "Select Player",
-            player: null,
+            player: "empty",
         };
 
         this.handleSelect = this.handleSelect.bind(this)    
@@ -22,25 +22,17 @@ class PlayerSelector extends Component {
             <div>
                 <label>{this.state.name}: </label>
                 <select  name={this.state.name} onChange = {this.handleSelect} value= {this.state.player}>
+                <option 
+                        key="empty"
+                        value="empty" > "---|---" </option>
                 {
                 this.props.players.map((player) => 
                     <option 
                         key={player.id} 
                         value={player.id} > {player.name} </option>
-                )
-                }
+                )}
                  </select>
                  </div>    
-            //     {
-            //         this.state.showMenu ? (
-            //             <div className = "menu" ref={(element) => { this.dropdownWinner = element;}} >
-            //                 {this.props.players.map((player) => 
-            //                     <button key={player.id} onClick={this.handleSelect.bind(this, player.id, player.name)} > {player.name} </button>
-            //                 )}
-            //             </div>
-            //         ) : ( null )
-            //     }
-            // </div>
         )
     }
 }

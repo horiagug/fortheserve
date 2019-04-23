@@ -9,7 +9,6 @@ class Player extends Component {
             _id: "",
             name: "",
             elo: "",
-
         }
     }
 

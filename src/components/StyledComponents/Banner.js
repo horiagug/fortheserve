@@ -23,7 +23,8 @@ font-weight: 300;
 `;
 
 const CTA = styled.div`
-margin: auto;
+flex: 1 100%;
+text-align: center;
 `;
 
 export {Banner, P, CTA}

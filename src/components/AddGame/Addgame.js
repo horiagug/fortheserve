@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import api from "./../../api"
 import PlayerSelector from "./Playerselector"
 import {Button} from "./../StyledComponents/Button"
+import {H2} from "./../StyledComponents/Headings"
+import {P} from "./../StyledComponents/Banner"
 
 class Addgame extends Component {
     constructor(props) {
@@ -44,25 +46,25 @@ class Addgame extends Component {
     renderMessage() {
       if (!this.state.added) {
         return (
-          <p color='black'> Add a game below: </p>
+          <P color='black'> Add a game below: </P>
         )
       }
       else {
         return (
-          <p color='green'> Game Added successfully </p>
+          <P color='green'> Game Added successfully </P>
         )
       }
     }
     
     render() {
       const renderLoser = this.state.winner != null;
-      let loserDisplay;
+      
 
       const isEnabled = this.state.winner != null && this.state.loser != null
 
         return(
-            <div>
-                <h2> Add Game </h2>
+            <div className= "AddGame">
+                <H2> Add Game </H2>
                 {this.renderMessage()}
                 <form onSubmit={this.handleSubmit.bind(this)}>
                   <PlayerSelector 
@@ -76,8 +78,7 @@ class Addgame extends Component {
                           name="Select Losing Player" 
                           onPlayerSelected={this.selectLoser.bind(this)}
                           disabled={!renderLoser} />
-                        }
-                  
+
                   <Button primary disabled={!isEnabled} type="submit">Submit Game</Button>
                 </form>
             </div>

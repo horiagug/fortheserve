@@ -15,7 +15,6 @@ const Button = styled.button`
   padding: 0.25em 1em;
   border: ${props => props.primary? "2px solid transparent" : "2px solid white"};
   border-radius : 100px;
-  
   transition: background 0.5s;
 
   :hover {
