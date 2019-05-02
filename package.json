@@ -4,7 +4,6 @@
   "private": true,
   "homepage": "http://horiagug.github.io/fortheserve",
   "dependencies": {
-    "env-cmd": "^8.0.2",
     "react": "^16.8.5",
     "react-confirm-alert": "^2.4.0",
     "react-dom": "^16.8.5",
