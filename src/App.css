@@ -22,6 +22,25 @@
 .App-link {
   color: #61dafb;
 }
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: opacity 500ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open{
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close{
+  opacity: 0;
+}
+
+hr { 
+  border: 0;
+  height: 1px;
+  margin: 10px 0;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
 
 @keyframes App-logo-spin {
   from {

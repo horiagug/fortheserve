@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import api from "../../api";
-
-import {Button} from "./../StyledComponents/Button"
+import {H2} from "../styledcomponents/Headings"
+import {Button} from "../styledcomponents/Button"
+import {Form, Input} from "../styledcomponents/Form"
 
 class Playermanagement extends Component {
     constructor(props){
@@ -40,16 +41,16 @@ class Playermanagement extends Component {
         const isEnabled = this.canBeSubmitted()
         return(
             <div>
-                <h2> Add Player </h2>
-                <form onSubmit = {this.onSubmit}>
-                    <input 
+                <H2> Add Player </H2>
+                <Form onSubmit = {this.onSubmit}>
+                    <Input 
                     placeholder="Player name"
                     type="text"
                     value={this.state.playerName}
                     onChange={this.handleNameChange}>
-                    </input>
+                    </Input>
                     <Button primary disabled={!isEnabled} type="submit"> Submit </Button>
-                </form>
+                </Form>
             </div>
         )
     }

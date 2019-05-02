@@ -15,10 +15,3 @@ html {
   width: 100%;
   height: 100%;
 }
-
-hr {
-  border: 0;
-  border-bottom: 1px dashed #ccc;
-  background: #999;
-  max-width: 75%;
-}

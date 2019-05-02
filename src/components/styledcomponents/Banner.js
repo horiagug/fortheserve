@@ -19,7 +19,7 @@ color: #fff;
 font-size: 1.2rem;
 text-align: center;
 flex: 1 100%;
-font-weight: 300;
+font-weight: 500;
 `;
 
 const CTA = styled.div`

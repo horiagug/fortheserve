@@ -11,10 +11,11 @@ const TH = styled.th`
 
 const Table= styled.table`
    margin: auto;
-   width: 80%
+   width: 75%
 `;
 
 const TR = styled.tr`
+   height: 2.5rem;
 `;
 
 const TD = styled.td`
