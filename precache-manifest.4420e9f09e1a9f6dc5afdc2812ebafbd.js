@@ -4,23 +4,23 @@ self.__precacheManifest = [
     "url": "/fortheserve/static/js/runtime~main.b74ec5eb.js"
   },
   {
-    "revision": "68b555e5ee15caa7a5ff",
-    "url": "/fortheserve/static/js/main.7ee51eb7.chunk.js"
+    "revision": "f8a810fbf09a86e51fc9",
+    "url": "/fortheserve/static/js/main.aa0aeb4c.chunk.js"
   },
   {
-    "revision": "dee27f0b65639a42e246",
-    "url": "/fortheserve/static/js/2.b55e7885.chunk.js"
+    "revision": "093cb3a9816f9ed31eb3",
+    "url": "/fortheserve/static/js/2.dc95078a.chunk.js"
   },
   {
-    "revision": "68b555e5ee15caa7a5ff",
+    "revision": "f8a810fbf09a86e51fc9",
     "url": "/fortheserve/static/css/main.c5404bff.chunk.css"
   },
   {
-    "revision": "dee27f0b65639a42e246",
+    "revision": "093cb3a9816f9ed31eb3",
     "url": "/fortheserve/static/css/2.2d284ed1.chunk.css"
   },
   {
-    "revision": "6de1d017296c648ca7043e653851fefe",
+    "revision": "951f73c64d140e96b750033202d31e7e",
     "url": "/fortheserve/index.html"
   }
 ];
