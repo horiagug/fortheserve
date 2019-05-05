@@ -6,7 +6,7 @@ const Banner = styled.div`
     background: url(https://images.unsplash.com/photo-1511067007398-7e4b90cfa4bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80);
     background-size: cover;
     background-position: center; 
-    height: 30rem;
+    height: 20rem;
     display: flex;  
     flex-flow: row wrap;
    align-content: center;
