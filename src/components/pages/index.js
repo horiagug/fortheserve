@@ -8,8 +8,10 @@ import api from "../../api";
 import { confirmAlert } from 'react-confirm-alert';
 import FormContent from "./../addgame/formcontent"
 import Modal from 'react-modal'
+import { brotliCompress } from "zlib";
 
 Modal.setAppElement('#root')
+
 class Container extends Component {
   constructor(props) {
     super(props);
@@ -137,9 +139,22 @@ closeModal() {
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
-          contentLabel="Example Modal"
+          contentLabel="Add Player Modal"
+          style={{
+            overlay: {
+          
+            },
+            content: {
+              background: "#fff",
+              top: "12%",
+              left: "5%",
+              right: "5%",
+              bottom: "12%",
+              padding: "20px"
+            }
+          }}
         >
-       <FormContent players = {this.state.players}></FormContent>
+       <FormContent players = {this.state.players} closeModal ={this.closeModal}></FormContent>
         </Modal>
             <Leaderboard players={this.state.players} delete = {this.deletePlayerPopUp} />
             <br></br>

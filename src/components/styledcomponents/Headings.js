@@ -5,8 +5,8 @@ const H1 = styled.h1`
     margin: auto;
     text-transform: uppercase;
     line-height: 1;
-    font-size: 3.75rem;
-    font-weight: 900;
+    font-size: 2.8rem;
+    font-weight: 800;
     color: ${props => props.dark ? "#000" : "#fff"}
     text-align: center;
     flex: 1 100%;

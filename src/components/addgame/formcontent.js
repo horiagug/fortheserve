@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {H1} from './../styledcomponents/Headings'
 import {Button} from './../styledcomponents/Button'
+import {CTA} from './../styledcomponents/AddGames'
 import SelectPlayers from './selectplayers'
 import AddGames from './addgames'
 import api from './../../api'
@@ -44,10 +45,12 @@ class FormContent extends Component {
     get previousButton(){
       let currentStep = this.state.currentStep;
       if(currentStep !==1){
+        if(this.state.player1_score ===0 && this.state.player2_score ===0){
         return (
           <Button  onClick={this._prev}> Previous </Button>
         )
       }
+    }
       return null;
     }
     
@@ -73,17 +76,15 @@ class FormContent extends Component {
       return null;
   }
 
-    // get finishButton(){
-    //   let currentStep = this.state.currentStep;
-    //   // If the current step is not 2, then render the "next" button
-    //   if(currentStep === 2 && ){
-    //     return (
-    //       <Button  primary  onClick={this._next}> Next  </Button>        
-    //     )
-    //   }
-    //   // ...else render nothing
-    //   return null;
-    // }
+    get finishButton(){
+      let currentStep = this.state.currentStep;
+      if(currentStep === 2){
+        return (
+          <Button  onClick={this.props.closeModal}> Finish  </Button>        
+        )
+      }
+      return null;
+    }
 
     addOrRemovePlayer(newArray, newPlayer, isFull){
       var alreadyExists = -1; //treating -1 as false here
@@ -202,9 +203,12 @@ render() {
             addGame = {this.addGame}
             removeGame={this.removeGame}
             />
-            {this.previousButton}
-            {this.nextButton}
-            {this.removeGameButton}
+            <CTA>
+              {this.previousButton}
+              {this.nextButton}
+              {this.removeGameButton}
+              {this.finishButton}
+            </CTA>
       </React.Fragment>
     )
 }

@@ -10,18 +10,17 @@ class AddGames extends Component {
       }
       return(
         <div>
-          <H2>Score</H2>
           <div>
               <Scores>
               <Player>
                 <H2>{this.props.selectedPlayers[0].name} </H2>
                 <H2>{this.props.player1_score} </H2>
-                <Button primary onClick={() =>{this.props.addGame(this.props.selectedPlayers[0].id, this.props.selectedPlayers[1].id)}}>Add</Button>
+                <Button xs primary onClick={() =>{this.props.addGame(this.props.selectedPlayers[0].id, this.props.selectedPlayers[1].id)}}>Add</Button>
               </Player>
               <Player>
                 <H2>{this.props.selectedPlayers[1].name} </H2>
                 <H2>{this.props.player2_score} </H2>
-                <Button primary onClick={() =>{this.props.addGame(this.props.selectedPlayers[1].id, this.props.selectedPlayers[0].id)}}>Add</Button>
+                <Button xs primary onClick={() =>{this.props.addGame(this.props.selectedPlayers[1].id, this.props.selectedPlayers[0].id)}}>Add</Button>
               </Player>
               </Scores>
               {this.removeGameButton}
