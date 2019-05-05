@@ -31,30 +31,28 @@ class Admin extends Component {
             }
           )
         })
+        api.getGames().then(
+          json => {
+            let games = json.map((game) => {
+                return(
+                    {
+                    key: game._id,
+                    _id :game._id,
+                    winner_id: game.winner_id,
+                    loser_id: game.loser_id,
+                    winner_elo_change: game.winner_elo_change,
+                    loser_elo_change: game.loser_elo_change,
+                    deleteGame : this.deleteGame,
+                    isAdmin : false,
+                    }
+                )
+            })
+            this.setState({games: games})
+        }
+      )
         this.setState({players: players})
       })
-
-      api.getGames().then(
-        json => {
-          let games = json.map((game) => {
-              return(
-                  {
-                  key: game._id,
-                  _id :game._id,
-                  winner_id: game.winner_id,
-                  loser_id: game.loser_id,
-                  winner_elo_change: game.winner_elo_change,
-                  loser_elo_change: game.loser_elo_change,
-                  deleteGame : this.deleteGame,
-                  isAdmin : false,
-                  }
-              )
-          })
-          this.setState({games: games})
-      }
-    )
   }
-
 
   deleteGame(_id) {
     api.deleteGame(_id)
