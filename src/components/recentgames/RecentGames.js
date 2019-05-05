@@ -14,7 +14,7 @@ class RecentGames extends Component {
                         <TR>
                             <TH>Winner</TH>
                             <TH>Elo Change</TH>
-                            <TH>Looser</TH>
+                            <TH>Loser</TH>
                             <TH id="loser_elo" >Elo Change</TH>
                             {this.props.isAdmin &&
                             <TH>Delete</TH>
